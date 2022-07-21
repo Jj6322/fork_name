@@ -5,9 +5,13 @@ from git import Repo
 
 import pytest
 
-
 def test_push():
-    print('hello')
-    repo = Repo(os.getcwd() + "/" + 'os.getcwd()/fork_name')
-    commits_ahead = repo.iter_commits(f'{repo.remote()}..{repo.active_branch}')
-    assert sum(1 for c in commits_ahead) == 0
+    g = Github('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')
+    org = g.get_organization("githubtraining")
+    repo = org.get_repo("hellogitworld")
+    for r in repo.get_forks():
+        if r.full_name=='Jj6322/fork_name':
+            my_repo = r
+            break
+    new = my_repo.get_contents("new_file.txt")
+    read = my_repo.get_contents("README.txt")
