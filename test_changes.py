@@ -4,9 +4,10 @@ from github import Github
 from git import Repo
 
 import pytest
+TOKEN='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'
 
 def test_push():
-    g = Github('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')
+    g = Github(TOKEN)
     org = g.get_organization("githubtraining")
     repo = org.get_repo("hellogitworld")
     for r in repo.get_forks():
