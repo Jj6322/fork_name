@@ -4,7 +4,7 @@ from github import Github
 from git import Repo
 
 import pytest
-TOKEN='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'
+TOKEN='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'
 
 def test_push():
     g = Github(TOKEN)
