@@ -1,18 +1,13 @@
-import os
+import os.path
 
 from github import Github
 from git import Repo
 
 import pytest
-TOKEN='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'
 
 def test_push():
-    g = Github(TOKEN)
-    org = g.get_organization("githubtraining")
-    repo = org.get_repo("hellogitworld")
-    for r in repo.get_forks():
-        if r.full_name=='Jj6322/fork_name':
-            my_repo = r
-            break
-    new = my_repo.get_contents("new_file.txt")
-    read = my_repo.get_contents("README.txt")
+    def test_push():
+    strToFind="new text"
+    assert os.path.exists('./new_file.txt')
+    with open('./README.txt', "r") as f:
+        assert strToFind in f.read()
